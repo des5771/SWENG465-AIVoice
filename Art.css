@@ -6,7 +6,9 @@
  }
 
 .loginBox {
+    width: 35%;
     text-align: center;
+    margin-left: 35%;
     padding: 10px;
     border: 2px outset green;
     background-color: white;
