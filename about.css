@@ -1,0 +1,50 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(180deg, rgba(6,0,103,1) 0%, rgba(47,47,179,1) 27%, rgba(191,107,189,1) 51%, rgba(254,255,247,1) 100%);
+}
+
+/* Center's the logo both vertically and horizontally */
+.logo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.button_padding {
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.cookie_container {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    bottom: 10px;
+    left: 0;
+    position: fixed;
+    margin-left: 20px;
+    margin-right: 20px;
+    right: 0;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+.cookie_button {
+    right: 2px;
+    bottom: 2px;
+    position: absolute;
+}
+
+.text {
+    color: white;
+}
