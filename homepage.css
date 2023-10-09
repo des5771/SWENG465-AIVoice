@@ -1,0 +1,52 @@
+body {
+    background-image: url("imgs/background.avif");
+    background-color: #ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+/* Center's the logo both vertically and horizontally */
+.logo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.button_padding {
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    bottom: 10px;
+    left: 0;
+    position: fixed;
+    margin-left: 20px;
+    margin-right: 20px;
+    right: 0;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+.cookie_button {
+    right: 5px;
+    bottom: 5px;
+    position: relative;
+}

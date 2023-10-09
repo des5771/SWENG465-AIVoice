@@ -18,6 +18,16 @@ body, h1, h2, p, ul, li, button {
 .navbar-title {
     font-size: 24px; /* Adjust the font size as needed */
     text-align: center; /* Center-align the title */
+    flex-grow: 1; /* Allow the title to grow to the right */
+}
+
+/* Style the website title */
+.navbar-title h1 {
+    font-size: 24px; /* Adjust the font size as needed */
+    text-align: center; /* Center-align the title */
+    flex-grow: 1; /* Allow the title to take up available space and center it */
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
 }
 
 /* Style the buttons container */
