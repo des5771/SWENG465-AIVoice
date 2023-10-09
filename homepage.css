@@ -21,7 +21,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
 }
 
@@ -46,7 +46,7 @@ img {
 }
 
 .cookie_button {
-    right: 5px;
-    bottom: 5px;
-    position: relative;
+    right: 2px;
+    bottom: 2px;
+    position: absolute;
 }
