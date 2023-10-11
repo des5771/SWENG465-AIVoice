@@ -6,12 +6,13 @@ body {
 
 }
 
-/*.customBox {
+.customBox {
      text-align: center;
      padding: 10px;
      border: 2px outset green;
-     background-color: white;
- }*/
+     background-color: #171717;
+     color: white;
+ }
 
 /*.loginBox {
     width: 35%;
