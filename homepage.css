@@ -1,4 +1,6 @@
 body {
+    margin: 0;
+    padding: 0;
     background-image: url("imgs/background.avif");
     background-color: #ccc;
     background-repeat: no-repeat;
@@ -49,4 +51,12 @@ img {
     right: 2px;
     bottom: 2px;
     position: absolute;
+}
+
+.navbar_box {
+    background: rgba(255, 255, 255, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
 }
