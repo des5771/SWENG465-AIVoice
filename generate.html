@@ -10,39 +10,57 @@
     <body>
         <div class="gradient-top"></div>
 
-        <br>
+        <div class="panel-container">
 
-        <div class="customBox">
-            <label for="voices">Choose a voice:</label>
-            <select name="Voices" id="voices">
-                <option value="Martin">Martin</option>
-                <option value="Minecraft Villager">Minecraft Villager</option>
-                <option value="Biggie Cheese">Biggie Cheese</option>
-                <option value="Moist Critikal">Moist Critikal</option>
-            </select>
+            <div class="panel-controls">
+                <a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt" style="max-width: 100%;"></a>
+
+                <div>
+                    <p>Generate</p>
+                    <p>Pricing</p>
+                    <p>Search</p>
+                </div>
+
+                <div style="position: absolute;bottom: 0">
+                    <p>Settings</p>
+                    <p>Logout</p>
+                </div>
+
+            </div>
+
+            <div class="panel-content">
+                <div class="box">
+                    <h3 for="voices">Choose a voice:</h3>
+                    <select name="Voices" id="voices">
+                        <option value="Martin">Martin</option>
+                        <option value="Minecraft Villager">Minecraft Villager</option>
+                        <option value="Biggie Cheese">Biggie Cheese</option>
+                        <option value="Moist Critikal">Moist Critikal</option>
+                    </select>
+                </div><br>
+
+                <div class="box">
+                    <h3>Text To Speech:</h3>
+                    <textarea id="freeform" name="freeform" rows="10" cols="100" placeholder="The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries."></textarea><br><br>
+                    <input type="submit" value="Generate TTS" />
+                </div><br>
+
+                <div class="box">
+                    <h3>Voice To Speech:</h3>
+                    <form action = "http://127.0.0.1:8081/sample_voice" method = "POST"
+                          enctype = "multipart/form-data">
+                        <input type="file" name="file" size="50" />
+                        <br />
+                        <input type = "submit" value = "Upload Voice" />
+                    </form><br>
+                    <input type="submit" value="Generate VTS" />
+
+                </div>
+            </div>
+
         </div><br>
 
-        <div class="customBox">
-            <h3>Text To Speech:</h3>
 
-            <textarea id="freeform" name="freeform" rows="10" cols="100" placeholder="The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries."></textarea><br><br>
-            <input type="submit" value="Generate TTS" />
-
-        </div><br>
-
-        <div class="customBox">
-            <h3>Voice To Speech:</h3>
-
-            <form action = "http://127.0.0.1:8081/sample_voice" method = "POST"
-                  enctype = "multipart/form-data">
-                <input type="file" name="file" size="50" />
-                <br />
-                <input type = "submit" value = "Upload Voice" />
-            </form><br>
-
-            <input type="submit" value="Generate VTS" />
-
-        </div>
 
     </body>
 </html>
