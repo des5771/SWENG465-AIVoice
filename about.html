@@ -13,17 +13,30 @@
 </head>
 
 <style>
+    /*Html stuff for scroll snap*/
     html {
         font-family: sans-serif;
         scroll-snap-type: mandatory;
         scroll-snap-points-y: repeat(100vh);
         scroll-snap-type: y mandatory;
     }
+
+    /*body image for background*/
+    /*
+    body {
+        height: 500vh;
+        background-image: url("imgs/background.avif");
+        background-color: #000;
+        background-size: cover;
+        background-position: center;
+    }
+    */
 </style>
 
 <body>
 <div class="gradient-top"></div>
 
+<!-- About page sections -->
 <div class="about-section">
     <h3 class="section_title_font">What we do</h3>
     <p class="section_body_font">We can take any audio file that contains a singular voice and convert it to another voice in a matter of seconds</p>
@@ -43,7 +56,7 @@
 </div>
 
 <div class="about-section">
-    <div class="login-container" style="height: 50%;max-height: 50%; margin-top: 10%">
+    <div class="container">
         <a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt" style="align-items: center;"></a>
     </div>
 </div>
