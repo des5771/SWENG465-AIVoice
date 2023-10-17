@@ -14,6 +14,11 @@
     <!-- Our overwrites -->
     <link rel="stylesheet" type="text/css" href="homepage.css">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -25,7 +30,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul>
-            <a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a>
+            <button class ="btn" onclick="loginDisplay()"><i class="fa-solid fa-lock"></i> Login</button>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -35,22 +40,61 @@
             <li><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a></li>
+            <li><button class ="btn" onclick="loginDisplay()"><i class="fa-solid fa-lock"></i> Login</button></li>
         </div>
 
     </header>
 
     <div class="cookie_container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam erat in ante malesuada, facilisis semper nulla semper. Phasellus sapien neque, faucibus in malesuada quis, lacinia et libero. Sed sed turpis tellus. Etiam ac aliquam tortor, eleifend rhoncus metus. Ut turpis massa, sollicitudin sit amet molestie a, posuere sit amet nisl. Mauris tincidunt cursus posuere. Nam commodo libero quis lacus sodales, nec feugiat ante posuere. Donec pulvinar auctor commodo. Donec egestas diam ut mi adipiscing, quis lacinia mauris condimentum. Quisque quis odio venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.</p>
-        <p>Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at, elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec accumsan et nunc vulputate accumsan. Vestibulum tempor, erat in mattis fringilla, elit urna ornare nunc, vel pretium elit sem quis orci. Vivamus condimentum dictum tempor. Nam at est ante. Sed lobortis et lorem in sagittis. In suscipit in est et vehicula.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam erat in ante malesuada, facilisis semper nulla semper. Phasellus sapien neque, faucibus in malesuada quis, lacinia et libero. Sed sed turpis tellus. Etiam ac aliquam tortor, eleifend rhoncus metus. Ut turpis massa, sollicitudin sit amet molestie a, posuere sit amet nisl. Mauris tincidunt cursus posuere. Nam commodo libero quis lacus sodales, nec feugiat ante posuere. Donec pulvinar auctor commodo. Donec egestas diam ut mi adipiscing, quis lacinia mauris condimentum. Quisque quis odio venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.
+        Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at, elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec accumsan et nunc vulputate accumsan. Vestibulum tempor, erat in mattis fringilla, elit urna ornare nunc, vel pretium elit sem quis orci. Vivamus condimentum dictum tempor. Nam at est ante. Sed lobortis et lorem in sagittis. In suscipit in est et vehicula.</p>
         <a href="#" class="pure-button pure-button-primary cookie_button">OK</a>
     </div>
+    <div id="login"  class="login-container">
+    <div class="login-box">
+        <h3>Log in or <button>Sign up</button></h3>
+        <div class="form-group w-100">
+            <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+        </div>
+        <div class="form-group w-100">
+            <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember me</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br>
+        <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
+        <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
+    </div>
+    </div>
 
+    <script src=
+                    "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
     <script>
+
+        const loginBtn = document.querySelector("btn");
+        const loginBox = document.querySelector("login-container");
         const toggleBtn = document.querySelector('.toggle_btn');
         const toggleBtnIcon = document.querySelector('.toggle_btn i');
         const dropDownMenu = document.querySelector('.dropdown_menu');
         const cookieBtn = document.querySelector('.cookie_button');
+
+
+        function toggler(login) {
+            $("#login").toggle();
+            let box = '.login-container';
+            box += 'justify-content: center';
+            box += 'align-items: center;';
+        }
+
+        function loginDisplay(){
+            toggler('login');
+        }
 
         toggleBtn.onclick = function (event) {
             event.stopPropagation();
