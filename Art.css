@@ -6,6 +6,17 @@ body {
 
 }
 
+.panel-controls a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.panel-controls a:hover {
+    color: #D3D3D3;
+    text-decoration:none;
+    cursor:pointer;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -192,6 +203,7 @@ body {
 a {
     color: #007bff
 }
+
 a:hover {
     color: #0056b3;
 }
