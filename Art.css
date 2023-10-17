@@ -6,12 +6,12 @@ body {
 
 }
 
-a {
+.panel-controls a {
     color: #FFFFFF;
     text-decoration: none;
 }
 
-a:hover {
+.panel-controls a:hover {
     color: #D3D3D3;
     text-decoration:none;
     cursor:pointer;
@@ -198,5 +198,13 @@ a:hover {
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+a {
+    color: #007bff
+}
+
+a:hover {
+    color: #0056b3;
 }
 
