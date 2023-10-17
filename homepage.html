@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+    <!-- Top Navbar -->
     <header>
         <div class="navbar">
             <div class="logo"><a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a></div>
@@ -37,16 +39,32 @@
             <li><a href="pricing.html">Pricing</a></li>
             <li><a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a></li>
         </div>
-
     </header>
 
+    <!-- Body Stuff to sell the user -->
+    <div class="">
+
+    </div>
+
+    <!-- Cookie Prompt -->
     <div class="cookie_container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam erat in ante malesuada, facilisis semper nulla semper. Phasellus sapien neque, faucibus in malesuada quis, lacinia et libero. Sed sed turpis tellus. Etiam ac aliquam tortor, eleifend rhoncus metus. Ut turpis massa, sollicitudin sit amet molestie a, posuere sit amet nisl. Mauris tincidunt cursus posuere. Nam commodo libero quis lacus sodales, nec feugiat ante posuere. Donec pulvinar auctor commodo. Donec egestas diam ut mi adipiscing, quis lacinia mauris condimentum. Quisque quis odio venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.</p>
-        <p>Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at, elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec accumsan et nunc vulputate accumsan. Vestibulum tempor, erat in mattis fringilla, elit urna ornare nunc, vel pretium elit sem quis orci. Vivamus condimentum dictum tempor. Nam at est ante. Sed lobortis et lorem in sagittis. In suscipit in est et vehicula.</p>
-        <a href="#" class="pure-button pure-button-primary cookie_button">OK</a>
+        <div class="cookie_content">
+            By clicking ”OK”, you agree to the storing of cookies on your device to
+            enhance site navigation, analyze site usage, and improve marketing
+            <a href="#" class="pure-button pure-button-primary cookie_button">OK</a>
+        </div>
     </div>
 
     <script>
+        // Coookie checker
+        window.onload = function() {
+            if (document.cookie.split(';').some((item) => item.trim().startsWith('acceptedCookies='))){
+                document.querySelector('.cookie_container').style.display = 'none';
+            }
+        }
+
+
+        // Drop down menu and cookie okay button
         const toggleBtn = document.querySelector('.toggle_btn');
         const toggleBtnIcon = document.querySelector('.toggle_btn i');
         const dropDownMenu = document.querySelector('.dropdown_menu');
@@ -63,6 +81,7 @@
         // If the user clicks on the cookie button, set the cookie container to invisible
         cookieBtn.onclick = function() {
             document.querySelector('.cookie_container').style.display = 'none';
+            document.cookie = 'acceptedCookies=true; max-age=' + 365*24*60*60
         }
 
         // If the user clicks outside the dropdown menu, close it
