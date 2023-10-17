@@ -6,6 +6,17 @@ body {
 
 }
 
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #D3D3D3;
+    text-decoration:none;
+    cursor:pointer;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -187,12 +198,5 @@ body {
 
 .btn:hover {
     background-color: #0056b3;
-}
-
-a {
-    color: #007bff
-}
-a:hover {
-    color: #0056b3;
 }
 
