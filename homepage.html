@@ -80,13 +80,13 @@
             }
         }
 
-
         // Drop down menu and cookie okay button
         const toggleBtn = document.querySelector('.toggle_btn');
         const toggleBtnIcon = document.querySelector('.toggle_btn i');
         const dropDownMenu = document.querySelector('.dropdown_menu');
         const cookieBtn = document.querySelector('.cookie_button');
 
+        // If the user clicks on the toggle button, open the dropdown menu
         toggleBtn.onclick = function (event) {
             event.stopPropagation();
             dropDownMenu.classList.toggle('open');
@@ -118,6 +118,7 @@
                 toggleBtnIcon.classList = 'fa-solid fa-bars';
             }
         }
+
     </script>
 
 </body>
