@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    transition: 0.2s;
 }
 
 body {
@@ -36,6 +38,7 @@ img {
 }
 
 .cookie_container {
+    display: none;
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -139,7 +142,7 @@ header {
 }
 
 .dropdown_menu.open {
-    height: 175px;
+    height: 195px;
 }
 
 .dropdown_menu li {
@@ -193,4 +196,47 @@ header {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(155, 155, 155, 0.8);
+}
+
+.demo_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.demo_box {
+    padding: 20px;
+    background: radial-gradient(circle, transparent 25%, #ffffff  26%),linear-gradient(45deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%), linear-gradient(135deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%);
+    background-size: 3em 3em;
+    background-color: #ffffff;
+    opacity: 0.8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    width: auto;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3137254902);
+    gap: 10px;
+}
+
+.demo_text {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.demo_track {
+
 }
