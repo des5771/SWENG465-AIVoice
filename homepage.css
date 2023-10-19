@@ -238,5 +238,16 @@ header {
 }
 
 .demo_track {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
 
+.demo_slides {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
