@@ -47,7 +47,7 @@ img {
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    width: 1080px;
+    width: auto;
     z-index: 2;
     height: auto;
 }
@@ -295,4 +295,10 @@ header {
     height: auto;
     max-width: 100%;
     max-height: 100%;
+}
+
+.scroll_prompt {
+    width: auto;
+    height: auto;
+    color: white;
 }
