@@ -253,17 +253,19 @@ header {
 }
 
 /* Login and Signup Container Nonsense */
-.login-container {
+.login-box {
+    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 95vh;
+    height: 100px;
     flex-direction: column;
     width: 30rem;
     margin: 0 auto;
 }
 
-.login-box{
+.login-box .container{
+    visibility: visible;
     padding: 15px;
     background-color: #171717;
     border-radius: 10px;
@@ -275,8 +277,17 @@ header {
     align-items: center;
     margin: 5px 0;
     width: auto;
+    height: 0px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3137254902);
+}
+
+.login-box .container .show {
+    visbility: visibile;
+}
+
+.login-box .show {
+    visbility: visibile;
 }
 
 .login-container img {

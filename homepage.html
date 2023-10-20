@@ -76,9 +76,8 @@
     <!-- Hidden DIV of Login and Signup -->
     <div class="login-container">
 
-        <a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
-
         <div class="login-box">
+            <a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
             <h3>Log in or <a href="Signup.html">Sign up</a></h3>
             <div class="form-group w-100">
                 <input type="email" class="form-control" id="InputEmail" placeholder="Email">
@@ -104,10 +103,15 @@
 
     <script>
         // Login / Signup Popup Window - Forget Password is it's own page still
-        function loginPopup() {
-            var popup = document.querySelector('.login-container');
+        function loginContainerPopup() {
+            var popup = document.querySelector('.login-box');
             popup.classList.toggle("show");
         }
+
+        //function loginContainerPopup() {
+        //    var popup = document.querySelector('.login-box');
+        //    popup.classList.toggle("show");
+        //}
 
         function signupPopup() {
             var popup = document.querySelector('');
