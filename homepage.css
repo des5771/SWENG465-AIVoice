@@ -297,8 +297,20 @@ header {
     max-height: 100%;
 }
 
-.scroll_prompt {
-    width: auto;
-    height: auto;
+.scroll_container {
+    display: flex;
+    flex-direction: column;
     color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

@@ -68,8 +68,11 @@
     </div>
 
     <!-- Scroll Prompt -->
-    <div class ="scroll_prompt" style="color: #FFFFFF;">
-        <h3>Scroll down</h3>
+    <div class="scroll_container">
+        <div id="scroll-text" class="scroll-text">
+            <h3>Scroll Down</h3>
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
     </div>
 
     <!-- Cookie Prompt -->
@@ -174,20 +177,21 @@
         }
 
         // Delay between iterations of bounce animation
-        function loopAnimation(element, animationName, duration, delay) {
-            element.classList.add('animate__animated', 'animate__${animationName}');
+        const delayTime = 3000;
+        const scrollElement = document.getElementById('scroll-text');
 
-            setTimeout(() => {
-                element.classList.remove('animate__animated', 'animate__${animationName}');
-            }, duration);
-
-            setTimeout(() => {
-                loopAnimation(element, animationName, duration, delay);
-            }, duration + delay);
+        function animateWithDelay() {
+            scrollElement.classList.add('animate__animated', 'animate__bounce');
+            scrollElement.addEventListener('animationend', function handler() {
+                scrollElement.classList.remove('animate__animated', 'animate__bounce');
+                scrollElement.removeEventListener('animationend', handler);
+                setTimeout(() => {
+                    animateWithDelay();
+                }, delayTime);
+            });
         }
 
-        const scroll_prompt = document.querySelector('scroll_prompt');
-        loopAnimation(scroll_prompt, 'bounce', 1000, 500);
+        animateWithDelay();
     </script>
 
 </body>
