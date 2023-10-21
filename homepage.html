@@ -34,7 +34,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul>
-            <a href="#login-box" class="action_btn"><div id="login-btn"><i class="fa-solid fa-lock"></i> Login</div></a>
+            <a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -44,7 +44,7 @@
             <li><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="#login-box" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a></li>
+            <li><a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a></li>
         </div>
     </header>
 
@@ -82,9 +82,9 @@
     </div>
 
     <!-- Hidden DIV of Login and Signup -->
-    <div class="login-box.container" id="login-box">
+    <div class="login-container">
 
-        <div id="cont" class="login-box">
+        <div class="login-box">
             <a href="homepage.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
             <h3>Log in or <a href="Signup.html">Sign up</a></h3>
             <div class="form-group w-100">
@@ -111,21 +111,20 @@
 
     <script>
         // Login / Signup Popup Window - Forget Password is it's own page still
-
-
-        function loginPopup() {
-            const popup = document.getElementById('login-btn');
-            const popuplog = document.getElementById('cont');
-            const popupcont = document.querySelector('.login-box')
+        function loginContainerPopup() {
+            var popup = document.querySelector('.login-box');
             popup.classList.toggle("show");
-            popuplog.classList.toggle("show");
-            popupcont.classList.toggle("show");
         }
 
-        //function signUpPopup() {
+        //function loginContainerPopup() {
         //    var popup = document.querySelector('.login-box');
         //    popup.classList.toggle("show");
         //}
+
+        function signupPopup() {
+            var popup = document.querySelector('');
+            popup.classList.toggle("show");
+        }
 
 
         // Coookie checker
