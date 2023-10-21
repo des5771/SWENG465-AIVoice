@@ -17,6 +17,9 @@
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <!-- WaveSurfer -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+
     <!-- Our overwrites -->
     <link rel="stylesheet" type="text/css" href="homepage.css">
 
@@ -57,7 +60,8 @@
             </div>
 
             <div class="demo_track">
-                <p>Sample Audio</p>
+                <img src="imgs/play.png" id="playBtn">
+                <div id="waveform"></div>
             </div>
         </div>
 
@@ -192,6 +196,38 @@
         }
 
         animateWithDelay();
+
+
+        // WaveSurfer for Demo
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'grey',
+            progressColor: 'dodgerblue',
+            barWidth: 4,
+            responsive: true,
+            height: 90,
+            barRadius: 4
+        })
+
+        wavesurfer.load('resources/boowamp.mp3');
+
+        // Play button swapper
+        const playBtn = document.getElementById('playBtn');
+
+        playBtn.onclick = function(){
+            wavesurfer.playPause();
+            if(playBtn.src.includes('play.png')){
+                playBtn.src = 'imgs/pause.png';
+            } else {
+                playBtn.src = 'imgs/play.png';
+            }
+        }
+
+        wavesurfer.on('finish', function(){
+            playBtn.src = 'imgs/play.png';
+            wavesurfer.stop();
+        })
+
     </script>
 
 </body>

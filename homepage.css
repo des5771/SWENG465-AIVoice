@@ -214,18 +214,12 @@ header {
     background: radial-gradient(circle, transparent 25%, #ffffff  26%),linear-gradient(45deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%), linear-gradient(135deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%);
     background-size: 3em 3em;
     background-color: #ffffff;
-    opacity: 0.8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 5px 0;
     width: auto;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3137254902);
-    gap: 10px;
 }
 
 .demo_text {
@@ -241,6 +235,17 @@ header {
     display: flex;
     align-items: center;
     margin-top: 20px;
+}
+
+.demo_track img {
+    width: 70px;
+    margin-right: 30px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.demo_track div {
+    flex: 1;
 }
 
 .demo_slides {
