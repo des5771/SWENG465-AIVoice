@@ -6,48 +6,12 @@ body {
 
 }
 
-.panel-controls a {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.panel-controls a:hover {
-    color: #D3D3D3;
-    text-decoration:none;
-    cursor:pointer;
-}
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 95vh;
     flex-direction: column;
-}
-
-.panel-container {
-    position: absolute;
-    top: 50px;
-    bottom: 50px;
-    left: 50px;
-    right: 50px;
-    color: white;
-}
-
-.panel-content {
-    margin-left: 175px;
-    height: 100%;
-    padding-left: 3rem;
-    transition: margin-left 0.3s;
-}
-
-.panel-controls{
-    float: left;
-    width: 175px;
-    background-color: transparent;
-    height: 100%;
-    font-size: 14px;
-    padding: 10px 0;
 }
 
 .box {
@@ -146,22 +110,6 @@ body {
     border-style: solid;
 }
 
-.section_title_font {
-    color: white;
-    font-size: 4em;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 0;
-}
-
-.section_body_font {
-    color: white;
-    font-size: 2em;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
 .column {
     width: 33%;
     max-width: 33%;
@@ -207,20 +155,120 @@ a:hover {
     color: #0056b3;
 }
 
+/*about.html - basic css page layout crap*/
+
 .about-section {
-
     display: flex;
-
     padding: 1rem;
     min-height: 100vh;
-
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
-
     scroll-snap-align: start;
 }
+
+.section_title_font {
+    color: white;
+    font-size: 4em;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0;
+}
+
+.section_body_font {
+    color: white;
+    font-size: 2em;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/*generate.html PANEL CONTAINER - holds the panel controls and panel contents*/
+
+.panel-container .box {
+    box-shadow: 0 0 7.5px;
+}
+
+.panel-container textarea {
+    padding: 0.2em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    resize: none;
+    box-shadow: 0 0 7.5px gray;
+}
+
+.panel-container input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.15rem;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    text-align: right;
+    box-shadow: 0 0 7.5px gray;
+}
+
+.panel-container select {
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 7.5px gray;
+}
+
+.panel-container {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 50px;
+    right: 50px;
+    color: white;
+}
+
+/*generate.html PANEL CONTROLS - the sidebar in the panel container*/
+
+.panel-controls{
+    float: left;
+    width: 175px;
+    background-color: transparent;
+    height: 100%;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.panel-controls a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.panel-controls a:hover {
+    color: #D3D3D3;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/*generate.html PANEL CONTENT - the main page shit in the panel container*/
+
+.panel-content {
+    margin-left: 175px;
+    height: 100%;
+    padding-left: 3rem;
+    transition: margin-left 0.3s;
+}
+
+
+
 
 
 
