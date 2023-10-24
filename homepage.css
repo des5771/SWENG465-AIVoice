@@ -9,7 +9,6 @@
 
 body {
     height: 100vh;
-    background-image: url("imgs/background.avif");
     background-color: #000;
     background-size: cover;
     background-position: center;
@@ -78,8 +77,9 @@ a:hover {
 
 header {
     position: sticky;
-    top: 0px;
+    top: 0;
     padding: 0 2rem;
+    height: 0;
 }
 
 .navbar {
@@ -178,25 +178,6 @@ header {
         left: 2rem;
         width: unset;
     }
-}
-
-::-webkit-scrollbar {
-    width: 15px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(133, 133, 133, 0.7);
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(155, 155, 155, 0.8);
 }
 
 .demo_container{
@@ -325,8 +306,14 @@ header {
 .homepage-container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    height: 100vh;
 }
 
 .homepage-container section {
     scroll-snap-align: start;
+    height: 100vh;
+}
+
+.homepage-container #section1 {
+    background-image: url("imgs/background.avif");
 }
