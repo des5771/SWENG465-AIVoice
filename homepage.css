@@ -90,6 +90,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    backdrop-filter: blur(5px);
+    padding: 0 0.5rem;
 }
 
 .navbar .logo {
@@ -315,5 +317,6 @@ header {
 }
 
 .homepage-container #section1 {
-    background-image: url("imgs/background.avif");
+    /*background-image: url("imgs/background.avif"); */
+    background-image: radial-gradient(circle at 50% -30%, #232e4e 23%, rgba(105, 120, 182, 0) 55%)
 }
