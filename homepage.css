@@ -39,6 +39,12 @@ img {
     background-image: radial-gradient(circle at 50% -30%, #232e4e 23%, rgba(105, 120, 182, 0) 55%)
 }
 
+.homepage-container #section2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* Cookie popup*/
 .cookie_container {
