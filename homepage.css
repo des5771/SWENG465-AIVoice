@@ -22,20 +22,25 @@ img {
     backdrop-filter: blur(2px);
 }
 
-/* Center's the logo both vertically and horizontally */
-.logo_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    overflow: hidden;
+/* Scroll snap and everything that is the homepage*/
+.homepage-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
-.button_padding {
-    padding-right: 7px;
-    padding-top: 5px;
+.homepage-container section {
+    scroll-snap-align: start;
+    height: 100vh;
 }
 
+.homepage-container #section1 {
+    /*background-image: url("imgs/background.avif"); */
+    background-image: radial-gradient(circle at 50% -30%, #232e4e 23%, rgba(105, 120, 182, 0) 55%)
+}
+
+
+/* Cookie popup*/
 .cookie_container {
     display: none;
     position: fixed;
@@ -232,15 +237,6 @@ header {
     flex: 1;
 }
 
-.demo_slides {
-    display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
 .login-container {
     display: flex;
     justify-content: center;
@@ -310,20 +306,4 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.homepage-container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-}
-
-.homepage-container section {
-    scroll-snap-align: start;
-    height: 100vh;
-}
-
-.homepage-container #section1 {
-    /*background-image: url("imgs/background.avif"); */
-    background-image: radial-gradient(circle at 50% -30%, #232e4e 23%, rgba(105, 120, 182, 0) 55%)
 }
