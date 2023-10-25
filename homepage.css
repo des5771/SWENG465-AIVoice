@@ -241,9 +241,17 @@ header {
     -ms-overflow-style: none;
 }
 
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+}
 /* Login and Signup Container Nonsense */
 .login-box {
-    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,7 +263,6 @@ header {
 }
 
 .login-box .container{
-    visibility: visible;
     padding: 15px;
     background-color: #171717;
     border-radius: 10px;

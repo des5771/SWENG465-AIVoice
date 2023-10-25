@@ -30,15 +30,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3137254902);
 }
 
-/*.loginBox {
-    width: 35%;
-    text-align: center;
-    margin-left: 35%;
-    padding: 10px;
-    border: 2px outset green;
-    background-color: white;
-}*/
-
 .login-container {
     display: flex;
     justify-content: center;
