@@ -108,7 +108,7 @@
             const container = document.getElementById("alert-container");
             if (res.status === 201) {
                 const data = await res.json();
-                container.innerHTML = `<div class="alert alert-success" role="alert"><h3 class="alert-heading">Nice!</h3>` +
+                container.innerHTML = `<div class="alert alert-success" role="alert"><h4 class="alert-heading">Nice!</h4>` +
                     `<p>${data.message}</p></div>`;
 
                 setTimeout(() => {

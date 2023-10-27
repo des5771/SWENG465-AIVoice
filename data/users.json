@@ -1,1 +1,8 @@
-{"users":[{"username":"foobar@gmail.com","password":"$2a$10$Q3m.hvKJ2Pb9ZGiiY7yt0.rpR6Cp8NjpKtS0j9q9LZKd3FD/cQEJW"}]}
+{
+  "users": [
+    {
+      "username": "foobar@gmail.com",
+      "password": "$2a$10$Q3m.hvKJ2Pb9ZGiiY7yt0.rpR6Cp8NjpKtS0j9q9LZKd3FD/cQEJW"
+    }
+  ]
+}

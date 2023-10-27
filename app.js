@@ -56,26 +56,33 @@ app.post('/signup', async (req, res) => {
 
 
 // Login route
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-    const rawData = fs.readFileSync('./data/users.json');
-    const parsedData = JSON.parse(rawData);
+    try {
+        const rawData = await fs.readFile('./data/users.json', 'utf8');
+        const parsedData = JSON.parse(rawData);
 
-    const user = parsedData.users.find(user => user.username === username);
+        const user = parsedData.users.find(user => user.username === username);
 
-    if (!user) {
-        return res.status(400).send('Username not found');
+        if (!user) {
+            return res.status(400).json({ message: 'Username not found' });
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordCorrect) {
+            return res.status(400).json({ message: 'Incorrect password' });
+        }
+
+        // Redirect to generate.html upon successful login -- PLACEHOLDER
+        res.status(200).json({ message: 'Login successful', redirect: 'generate.html' });
+
+    } catch (error) {
+        // Handle file read or parse errors
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-
-    const isPasswordCorrect = bcrypt.compareSync(password, user.password);
-
-    if (!isPasswordCorrect) {
-        return res.status(400).send('Incorrect password');
-    }
-
-    // Redirect to generate.html upon successful login -- PLACEHOLDER
-    return res.redirect('generate.html');
 });
 
 // Initialize server

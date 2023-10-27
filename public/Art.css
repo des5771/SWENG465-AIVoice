@@ -64,6 +64,16 @@ body {
     width: 100%;
 }
 
+/* Alert container */
+#alert-container {
+    position: fixed;
+    left: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 900px;
+}
+
 /* Gradient colors, button colors, and link colors*/
 
 .gradient-top {
