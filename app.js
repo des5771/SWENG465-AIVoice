@@ -16,7 +16,7 @@ app.post('/signup', (req, res) => {
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Load existing users
-    const rawData = fs.readFileSync('users.json');
+    const rawData = fs.readFileSync('./data/users.json');
     const parsedData = JSON.parse(rawData);
 
     // Check if username already exists
@@ -31,7 +31,7 @@ app.post('/signup', (req, res) => {
 
     // Add new user
     parsedData.users.push({ username, password: hashedPassword });
-    fs.writeFileSync('users.json', JSON.stringify(parsedData));
+    fs.writeFileSync('./data/users.json', JSON.stringify(parsedData));
 
     res.status(200).send('Signup successful');
 
