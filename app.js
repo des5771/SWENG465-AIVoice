@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 // Sign-up route
 app.post('/signup', (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, confirmPassword } = req.body;
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
 
@@ -22,6 +22,11 @@ app.post('/signup', (req, res) => {
     // Check if username already exists
     if (parsedData.users.find(user => user.username === username)) {
         return res.status(400).send('Username already exists');
+    }
+
+    // Check if password and confirmPassword are the same
+    if (password !== confirmPassword) {
+        return res.status(400).send('Passwords do not match');
     }
 
     // Add new user
