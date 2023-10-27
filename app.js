@@ -1,41 +1,59 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
-
+const fs = require('fs').promises; // Async version of fs
+const app = express();
 
 // Middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Sign-up route
-app.post('/signup', (req, res) => {
-    const { username, password, confirmPassword } = req.body;
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(password, salt);
+app.post('/signup', async (req, res) => {
+    try {
+        const { username, password, confirmPassword } = req.body;
 
-    // Load existing users
-    const rawData = fs.readFileSync('./data/users.json');
-    const parsedData = JSON.parse(rawData);
+        console.log("Received this data:", req.body);
 
-    // Check if username already exists
-    if (parsedData.users.find(user => user.username === username)) {
-        return res.status(400).send('Username already exists');
+        // Validate request data
+        if (!username || !password || !confirmPassword) {
+            return res.status(400).json({ message: "Missing fields" });
+        }
+
+        // Load existing users
+        const rawData = await fs.readFile('./data/users.json', 'utf8'); // Async read
+        const parsedData = JSON.parse(rawData);
+
+        if (!parsedData.users) {
+            return res.status(500).json({ message: "Server error" });
+        }
+
+        // Check if username already exists
+        if (parsedData.users.find(user => user.username === username)) {
+            return res.status(400).json({ message: 'Username already exists' });
+        }
+
+        // Check if password and confirmPassword are the same
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: 'Passwords do not match' });
+        }
+
+        // Mmhm salty
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(password, salt);
+
+        // Add new user
+        parsedData.users.push({ username, password: hashedPassword });
+        await fs.writeFile('./data/users.json', JSON.stringify(parsedData, null, 2)); // Async write
+
+        res.status(201).json({ message: 'Signup successful' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
     }
-
-    // Check if password and confirmPassword are the same
-    if (password !== confirmPassword) {
-        return res.status(400).send('Passwords do not match');
-    }
-
-    // Add new user
-    parsedData.users.push({ username, password: hashedPassword });
-    fs.writeFileSync('./data/users.json', JSON.stringify(parsedData));
-
-    res.status(200).send('Signup successful');
-
 });
+
 
 // Login route
 app.post('/login', (req, res) => {

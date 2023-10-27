@@ -22,6 +22,10 @@
 
 <div class="gradient-top"></div>
 
+<!-- Alert container placeholder -->
+<div id="alert-container"></div>
+
+<!-- Main container -->
 <div class="login-container">
 
     <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
@@ -49,38 +53,76 @@
 </div>
 
 <script>
-    // Target input elements and the submit button
-    const emailInput = document.getElementById('InputEmail');
-    const passwordInput = document.getElementById('InputPassword');
-    const confirmPasswordInput = document.getElementById('InputPassword1');
-    const submitButton = document.getElementById('submitButton');
-    const passwordError = document.getElementById('passwordError'); // Target the warning message element
+    // Helper function to determine the state of the form fields
+    const isFormFilled = (fields) => fields.every(field => field.value);
+    const doPasswordsMatch = (pass1, pass2) => pass1.value === pass2.value;
 
-    // Function to enable or disable the submit button and perform password match check
-    function toggleButtonState() {
-        const isFilled = emailInput.value && passwordInput.value && confirmPasswordInput.value;
-        const doPasswordsMatch = passwordInput.value === confirmPasswordInput.value;
-
-        if (isFilled) {
-            if (doPasswordsMatch) {
-                confirmPasswordInput.classList.remove('is-invalid'); // Remove red border
-                passwordError.textContent = ''; // Clear warning message
-                submitButton.disabled = false; // Enable submit button
+    // Function to toggle button state and display warnings
+    const toggleButtonState = (email, password, confirmPassword, submitBtn, errorMsg) => {
+        if (isFormFilled([email, password, confirmPassword])) {
+            if (doPasswordsMatch(password, confirmPassword)) {
+                confirmPassword.classList.remove('is-invalid');
+                errorMsg.textContent = '';
+                submitBtn.disabled = false;
             } else {
-                confirmPasswordInput.classList.add('is-invalid'); // Add red border
-                passwordError.textContent = 'Passwords do not match'; // Display warning message
-                submitButton.disabled = true; // Keep submit button disabled
+                confirmPassword.classList.add('is-invalid');
+                errorMsg.textContent = 'Passwords do not match';
+                submitBtn.disabled = true;
             }
         } else {
-            submitButton.disabled = true; // Keep submit button disabled
+            submitBtn.disabled = true;
         }
-    }
+    };
 
-    // Attach input event listeners to input fields
-    emailInput.addEventListener('input', toggleButtonState);
-    passwordInput.addEventListener('input', toggleButtonState);
-    confirmPasswordInput.addEventListener('input', toggleButtonState);
+    // Main execution begins here
+    document.addEventListener('DOMContentLoaded', () => {
+        // Target elements
+        const emailInput = document.getElementById('InputEmail');
+        const passwordInput = document.getElementById('InputPassword');
+        const confirmPasswordInput = document.getElementById('InputPassword1');
+        const submitButton = document.getElementById('submitButton');
+        const passwordError = document.getElementById('passwordError');
+
+        // Attach event listeners
+        [emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+            input.addEventListener('input', () => toggleButtonState(emailInput, passwordInput, confirmPasswordInput, submitButton, passwordError));
+        });
+
+        // AJAX form submission
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const jsonData = Object.fromEntries(formData);
+
+            const res = await fetch("/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jsonData),
+            });
+
+            const container = document.getElementById("alert-container");
+            if (res.status === 201) {
+                const data = await res.json();
+                container.innerHTML = `<div class="alert alert-success" role="alert"><h3 class="alert-heading">Nice!</h3>` +
+                    `<p>${data.message}</p></div>`;
+
+                setTimeout(() => {
+                    window.location.href = "/generate.html";
+                }, 5000); // Redirect after 5 seconds
+            } else {
+                const data = await res.json();
+                container.innerHTML = `<div class="alert alert-danger" role="alert"><h3 class="alert-heading">Uh oh!</h3>` +
+                    `<p>${data.message}</p></div>`;
+            }
+        });
+    });
 </script>
+
 
 
 </body>
