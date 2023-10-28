@@ -171,6 +171,10 @@ a:hover {
     text-align: center;
 }
 
+.panel-container .fileInput {
+    color:#000
+}
+
 .panel-container textarea {
     padding: 0.2em;
     background-color: #fff;
@@ -180,6 +184,7 @@ a:hover {
     cursor: pointer;
     resize: none;
     box-shadow: 0 0 7.5px gray;
+    width: 80%;
 }
 
 .panel-container input {
@@ -190,7 +195,6 @@ a:hover {
     background-color: #fff;
     border: 1px solid #caced1;
     border-radius: 0.25rem;
-    color: #000;
     cursor: pointer;
     text-align: right;
     box-shadow: 0 0 7.5px gray;
