@@ -168,6 +168,7 @@ a:hover {
 
 .panel-container .box {
     box-shadow: 0 0 7.5px;
+    text-align: center;
 }
 
 .panel-container textarea {
@@ -196,7 +197,6 @@ a:hover {
 }
 
 .panel-container select {
-    width: 100%;
     font-size: 1.15rem;
     padding: 0.675em 6em 0.675em 1em;
     background-color: #fff;
