@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             generateButtonTTS.disabled = true;
         } else if (selectedVoice !== '0' && selectedFile !== null) {
             generateButtonVTS.disabled = false;
-        } else  if (selectedVoice !== '0' && text !== null) {
+        } else  if (selectedVoice !== '0' && text !== '') {
             generateButtonTTS.disabled = false;
         }
     });
