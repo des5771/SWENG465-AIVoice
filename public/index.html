@@ -38,7 +38,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul>
-            <a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a>
+            <a href="javascript:loginAppear();" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -122,18 +122,14 @@
 
     <script>
         // Login / Signup Popup Window - Forget Password is it's own page still
-        function loginContainerPopup() {
-            var popup = document.querySelector('.login-box');
-            popup.classList.toggle("show");
+        function loginAppear() {
+            let popup = document.querySelector('.login-container').style.display = "block";
         }
 
-        //function loginContainerPopup() {
-        //    var popup = document.querySelector('.login-box');
-        //    popup.classList.toggle("show");
-        //}
+
 
         function signupPopup() {
-            var popup = document.querySelector('');
+            let popup = document.querySelector('');
             popup.classList.toggle("show");
         }
 
