@@ -243,21 +243,24 @@ header {
     flex: 1;
 }
 
+
+/* Login and Sign up Container Nonsense */
 .login-container {
     display: none;
     justify-content: center;
     align-items: center;
-    height: 95vh;
+    height: 275px;
     flex-direction: column;
     width: 30rem;
     margin: auto;
     position: fixed;
-    top: 45%;
-    left: 45%;
+    top: 40%;
+    left: 36%;
     z-index: 100;
-    color: black;
+    color: white;
+    border: 0.25rem solid red;
 }
-/* Login and Signup Container Nonsense */
+
 .login-box {
     display: flex;
     justify-content: center;
@@ -267,8 +270,9 @@ header {
     width: 30rem;
     margin: 0 auto;
     z-index: 0;
+    color: lightsalmon;
 }
-
+/*
 .login-box .container{
     padding: 15px;
     background-color: #171717;
@@ -284,7 +288,7 @@ header {
     height: 0px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3137254902);
-}
+} */
 
 .login-box .container .show {
     visbility: visibile;

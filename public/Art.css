@@ -34,7 +34,6 @@ body {
     flex-direction: column;
     width: 30rem;
     margin: 0 auto;
-    display: none;
 }
 
 .login-box{
