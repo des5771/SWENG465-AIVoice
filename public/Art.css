@@ -1,0 +1,275 @@
+body {
+    background: #171717;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: column;
+}
+
+/* Login and Signup CSS*/
+
+.login-container.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+    display: none;
+}
+
+.login-box{
+    padding: 15px;
+    background-color: #171717;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    width: auto;
+    height: 0;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3137254902);
+}
+
+.login-container img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.form-control {
+    background: #0e0e0e;
+    color: rgba(255, 255, 255, 0.8509803922);
+    transition: 0.2s;
+}
+
+.form-control:focus {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Alert container */
+#alert-container {
+    position: fixed;
+    left: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 900px;
+}
+
+/* Gradient colors, button colors, and link colors*/
+
+.gradient-top {
+    height: 2px;
+    background: linear-gradient(to right, #fc466b, #3f5efb);
+    width: 100%;
+    top: 0;
+}
+
+.gradient-column {
+    border-image: linear-gradient(to bottom, #fc466b, #3f5efb) 30;
+    border-width: 0;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-style: solid;
+}
+
+.gradient-box {
+    border-image: linear-gradient(to bottom right, #fc466b, #3f5efb) 30;
+    border-width: 0;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-style: solid;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: 0.2s;
+    background-color: #007bff;
+}
+.btn:active {
+    transform: scale(0.95);
+    background-color: #0056b3;
+}
+
+.btn:focus {
+    outline: none !important;
+    box-shadow: none;
+    background-color: #0056b3;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #007bff
+}
+
+a:hover {
+    color: #0056b3;
+}
+.text {
+    color: lightgrey;
+}
+
+/*about.html - basic css page layout crap*/
+
+.about-section {
+    display: flex;
+    padding: 1rem;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.section_title_font {
+    color: white;
+    font-size: 4em;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0;
+}
+
+.section_body_font {
+    color: white;
+    font-size: 2em;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/*generate.html PANEL CONTAINER - holds the panel controls and panel contents*/
+
+.panel-container .box {
+    box-shadow: 0 0 7.5px;
+    text-align: center;
+}
+
+.panel-container .fileInput {
+    color:#000
+}
+
+.panel-container textarea {
+    padding: 0.2em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    resize: none;
+    box-shadow: 0 0 7.5px gray;
+    width: 80%;
+}
+
+.panel-container input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.15rem;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-align: right;
+    box-shadow: 0 0 7.5px gray;
+}
+
+.panel-container select {
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 7.5px gray;
+}
+
+.panel-container {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 50px;
+    right: 50px;
+    color: white;
+}
+
+/*generate.html PANEL CONTROLS - the sidebar in the panel container*/
+
+.panel-controls{
+    float: left;
+    width: 175px;
+    background-color: transparent;
+    height: 100%;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.panel-controls a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.panel-controls a:hover {
+    color: #D3D3D3;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/*generate.html PANEL CONTENT - the main page shit in the panel container*/
+
+.panel-content {
+    margin-left: 175px;
+    height: 100%;
+    padding-left: 3rem;
+    transition: margin-left 0.3s;
+}
+
+
+
+
+
+
+
+

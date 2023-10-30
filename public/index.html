@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relikt: Secure your Voice</title>
+    <link rel="icon" href="imgs/favicon.ico" type="image/ico">
+
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- PureCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- WaveSurfer -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+
+    <!-- Our overwrites -->
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="homepage-container">
+    <!-- Top Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+            <a href="javascript:loginAppear();" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="Login.html" class="action_btn"><i class="fa-solid fa-lock"></i> Login</a></li>
+        </div>
+    </header>
+
+    <!-- Section 1 -->
+    <section id="section1">
+
+    <!-- Body Stuff to sell the user -->
+        <div class="demo_container">
+            <div class="demo_box">
+                <div class="demo_text">
+                    <h1>Secure your spot in the future</h1>
+                    <h3>Relikt is your AI-Powered Voice Replicator</h3>
+                </div>
+
+                <div class="demo_track">
+                    <img src="imgs/play.png" id="playBtn">
+                    <div id="waveform"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Prompt -->
+        <div class="scroll_container">
+            <div id="scroll-text" class="scroll-text">
+                <h3>Scroll Down</h3>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="section2">
+        <h1 style="color:white">Hello World</h1>
+    </section>
+</div>
+    <!-- Cookie Prompt -->
+    <div class="cookie_container">
+        <div class="cookie_content">
+            By clicking ”OK”, you agree to the storing of cookies on your device to
+            enhance site navigation, analyze site usage, and improve marketing
+            <a href="#" class="pure-button pure-button-primary cookie_button">OK</a>
+        </div>
+    </div>
+
+    <!-- Hidden DIV of Login and Signup -->
+    <div class="login-container">
+
+        <div class="login-box">
+            <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
+            <h3>Log in or <a href="Signup.html">Sign up</a></h3>
+            <div class="form-group w-100">
+                <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+            </div>
+            <div class="form-group w-100">
+                <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+            <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
+            <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        // Login / Signup Popup Window - Forget Password is it's own page still
+        function loginAppear() {
+            let popup = document.querySelector('.login-container').style.display = "block";
+        }
+
+
+
+        function signupPopup() {
+            let popup = document.querySelector('');
+            popup.classList.toggle("show");
+        }
+
+
+        // Coookie checker
+        window.onload = function() {
+            if (!document.cookie.split(';').some((item) => item.trim().startsWith('acceptedCookies='))){
+                document.querySelector('.cookie_container').style.display = 'initial';
+            }
+        }
+
+
+        // Drop down menu and cookie okay button
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+        const cookieBtn = document.querySelector('.cookie_button');
+
+        toggleBtn.onclick = function (event) {
+            event.stopPropagation();
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+
+        // If the user clicks on the cookie button, set the cookie container to invisible
+        cookieBtn.onclick = function() {
+            document.querySelector('.cookie_container').style.display = 'none';
+            document.cookie = 'acceptedCookies=true; max-age=' + 365*24*60*60
+        }
+
+        // If the user clicks outside the dropdown menu, close it
+        window.onclick = function(event) {
+            if (dropDownMenu.classList.contains('open')) {
+                if (!event.target.matches('.action_btn') && !event.target.closest('.dropdown_menu')) {
+                    dropDownMenu.classList.remove('open');
+                    toggleBtnIcon.classList = 'fa-solid fa-bars';
+                }
+            }
+        }
+
+        // If the window is resized to anything bigger than 696px, close the dropdown menu
+        window.onresize = function(event) {
+            if (window.innerWidth > 696) {
+                dropDownMenu.classList.remove('open');
+                toggleBtnIcon.classList = 'fa-solid fa-bars';
+            }
+        }
+
+        // Delay between iterations of bounce animation
+        const delayTime = 3000;
+        const scrollElement = document.getElementById('scroll-text');
+
+        function animateWithDelay() {
+            scrollElement.classList.add('animate__animated', 'animate__bounce');
+            scrollElement.addEventListener('animationend', function handler() {
+                scrollElement.classList.remove('animate__animated', 'animate__bounce');
+                scrollElement.removeEventListener('animationend', handler);
+                setTimeout(() => {
+                    animateWithDelay();
+                }, delayTime);
+            });
+        }
+
+        animateWithDelay();
+
+
+        // WaveSurfer for Demo
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'grey',
+            progressColor: 'dodgerblue',
+            barWidth: 4,
+            responsive: true,
+            height: 90,
+            barRadius: 4
+        })
+
+        wavesurfer.load('resources/boowamp.mp3');
+
+        // Play button swapper
+        const playBtn = document.getElementById('playBtn');
+
+        playBtn.onclick = function(){
+            wavesurfer.playPause();
+            if(playBtn.src.includes('play.png')){
+                playBtn.src = 'imgs/pause.png';
+            } else {
+                playBtn.src = 'imgs/play.png';
+            }
+        }
+
+        wavesurfer.on('finish', function(){
+            playBtn.src = 'imgs/play.png';
+            wavesurfer.stop();
+        })
+
+    </script>
+
+</body>
+</html>

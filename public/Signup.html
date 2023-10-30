@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="icon" href="imgs/favicon.ico" type="image/ico">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Our overwrites -->
+    <link rel="stylesheet" type="text/css" href="Art.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="gradient-top"></div>
+
+<!-- Alert container placeholder -->
+<div id="alert-container"></div>
+
+<!-- Main container -->
+<div class="login-container">
+
+    <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
+
+    <div class="login-box">
+        <form method="POST" action="/signup">
+            <h3><a href="Login.html">Log in</a> or Sign up</h3>
+            <div class="form-group w-100">
+                <input type="email" class="form-control" id="InputEmail" name="username" placeholder="Email" required>
+            </div>
+            <div class="form-group w-100">
+                <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group w-100">
+                <input type="password" class="form-control" id="InputPassword1" name="confirmPassword" placeholder="Confirm Password" required>
+                <small id="passwordError" class="text-danger"></small> <!-- Placeholder for the warning message -->
+            </div>
+
+            <button type="submit" id="submitButton" class="btn btn-primary" disabled>Submit</button>
+            <br>
+            <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    // Helper function to determine the state of the form fields
+    const isFormFilled = (fields) => fields.every(field => field.value);
+    const doPasswordsMatch = (pass1, pass2) => pass1.value === pass2.value;
+
+    // Function to toggle button state and display warnings
+    const toggleButtonState = (email, password, confirmPassword, submitBtn, errorMsg) => {
+        if (isFormFilled([email, password, confirmPassword])) {
+            if (doPasswordsMatch(password, confirmPassword)) {
+                confirmPassword.classList.remove('is-invalid');
+                errorMsg.textContent = '';
+                submitBtn.disabled = false;
+            } else {
+                confirmPassword.classList.add('is-invalid');
+                errorMsg.textContent = 'Passwords do not match';
+                submitBtn.disabled = true;
+            }
+        } else {
+            submitBtn.disabled = true;
+        }
+    };
+
+    // Main execution begins here
+    document.addEventListener('DOMContentLoaded', () => {
+        // Target elements
+        const emailInput = document.getElementById('InputEmail');
+        const passwordInput = document.getElementById('InputPassword');
+        const confirmPasswordInput = document.getElementById('InputPassword1');
+        const submitButton = document.getElementById('submitButton');
+        const passwordError = document.getElementById('passwordError');
+
+        // Attach event listeners
+        [emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+            input.addEventListener('input', () => toggleButtonState(emailInput, passwordInput, confirmPasswordInput, submitButton, passwordError));
+        });
+
+        // AJAX form submission
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const jsonData = Object.fromEntries(formData);
+
+            const res = await fetch("/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jsonData),
+            });
+
+            const container = document.getElementById("alert-container");
+            if (res.status === 201) {
+                const data = await res.json();
+                container.innerHTML = `<div class="alert alert-success" role="alert"><h4 class="alert-heading">Nice!</h4>` +
+                    `<p>${data.message}</p></div>`;
+
+                setTimeout(() => {
+                    window.location.href = "/generate.html";
+                }, 5000); // Redirect after 5 seconds
+            } else {
+                const data = await res.json();
+                container.innerHTML = `<div class="alert alert-danger" role="alert"><h3 class="alert-heading">Uh oh!</h3>` +
+                    `<p>${data.message}</p></div>`;
+            }
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
