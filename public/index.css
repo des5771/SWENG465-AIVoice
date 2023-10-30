@@ -41,7 +41,10 @@ img {
 
 .homepage-container #section2 {
     display: flex;
-    align-items: center;
+}
+
+.homepage-container #section2 #header-text {
+    text-align: center;
     justify-content: center;
 }
 

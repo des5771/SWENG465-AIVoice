@@ -14,11 +14,16 @@ app.post('/signup', async (req, res) => {
     try {
         const { username, password, confirmPassword } = req.body;
 
-        console.log("Received this data:", req.body);
+        console.log("Received login request from:", username);
 
         // Validate request data
         if (!username || !password || !confirmPassword) {
             return res.status(400).json({ message: "Missing fields" });
+        }
+
+        // Check if password and confirmPassword are the same
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: 'Passwords do not match' });
         }
 
         // Load existing users
@@ -32,11 +37,6 @@ app.post('/signup', async (req, res) => {
         // Check if username already exists
         if (parsedData.users.find(user => user.username === username)) {
             return res.status(400).json({ message: 'Username already exists' });
-        }
-
-        // Check if password and confirmPassword are the same
-        if (password !== confirmPassword) {
-            return res.status(400).json({ message: 'Passwords do not match' });
         }
 
         // Mmhm salty
