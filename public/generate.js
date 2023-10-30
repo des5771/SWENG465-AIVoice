@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     textArea.addEventListener('change', () => {
-       text = textArea.value;
+        text = textArea.value;
 
-       console.log(text)
+        console.log(text)
 
         if (selectedVoice !== '0' && text !== '') {
             generateButtonTTS.disabled = false;
@@ -74,20 +74,33 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = new FormData();
         formData.append('chosenVoice', selectedVoice);
 
-        //base64 biiiiiiatch
-        formData.append('voiceInput', btoa(selectedFile));
+        //readfile
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            // binary data converted to base64
+            fileData = btoa(e.target.result);
 
-        fetch('/vts', {
-            method: 'POST',
-            body: formData,
-        })
-            .then(response => response.json())
-            .then(data => {
-                uploadStatus.textContent = data.message;
+            //base64 biiiiiiatch
+            formData.append('voiceInput', fileData);
+
+            fetch('/vts', {
+                method: 'POST',
+                body: formData,
             })
-            .catch(error => {
-                uploadStatus.textContent = 'Error uploading the file: ' + error.message;
-            });
+                .then(response => response.json())
+                .then(data => {
+                    uploadStatus.textContent = data.message;
+                })
+                .catch(error => {
+                    uploadStatus.textContent = 'Error uploading the file: ' + error.message;
+                });
+        };
+        reader.onerror = function(e) {
+            // error occurred
+            console.log('Error : ' + e.type);
+        };
+        reader.readAsBinaryString(selectedFile);
+
     }
 
     function generateTTS() {
@@ -110,7 +123,3 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
-
-// VTS Generate
-
-// TTS Generate
