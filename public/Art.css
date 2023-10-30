@@ -16,6 +16,16 @@ body {
 
 /* Login and Signup CSS*/
 
+.login-container.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -38,6 +48,7 @@ body {
     align-items: center;
     margin: 5px 0;
     width: auto;
+    height: 0;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3137254902);
 }
@@ -133,6 +144,9 @@ a {
 
 a:hover {
     color: #0056b3;
+}
+.text {
+    color: lightgrey;
 }
 
 /*about.html - basic css page layout crap*/
