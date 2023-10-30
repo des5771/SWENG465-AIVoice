@@ -252,16 +252,17 @@ header {
     display: none;
     justify-content: center;
     align-items: center;
-    height: 275px;
+    height: 405px;
     flex-direction: column;
-    width: 30rem;
+    width: 33rem;
     margin: auto;
     position: fixed;
-    top: 40%;
+    top: 42%;
     left: 36%;
     z-index: 100;
     color: white;
     border: 0.25rem solid red;
+    background-color: darkseagreen;
 }
 
 .login-box {
@@ -273,7 +274,8 @@ header {
     width: 30rem;
     margin: 0 auto;
     z-index: 0;
-    color: lightsalmon;
+    color: lightgoldenrodyellow;
+
 }
 /*
 .login-box .container{
