@@ -96,15 +96,17 @@
     <div class="login-container">
 
         <div class="login-box">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
-            <h3>Log in or <a href="javascript:loginAppear();">Sign up</a></h3>
+            <br>
+            <h3>Log in or <a href="javascript:loginSwitch();">Sign up</a></h3>
             <div class="form-group w-100">
                 <input type="email" class="form-control" id="InputEmail" placeholder="Email">
             </div>
             <div class="form-group w-100">
                 <input type="password" class="form-control" id="InputPassword" placeholder="Password">
             </div>
+            <br>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -119,48 +121,48 @@
         </div>
     </div>
 
-
     <div class="signup-container">
 
         <div class="signup-box">
-        <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
-        <h3><a href="javascript:signupAppear();">Log in</a> or Sign upor Sign up</h3>
-        <div class="form-group w-100">
-            <input type="email" class="form-control" id="InputEmail" placeholder="Email">
-        </div>
-        <div class="form-group w-100">
-            <input type="password" class="form-control" id="InputPassword" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember me</label>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
+            <br>
+            <h3><a href="javascript:signupSwitch();">Log in</a> or Sign up</h3>
+            <div class="form-group w-100">
+                <input type="email" class="form-control" id="InputEmail" placeholder="Email">
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br>
-        <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
-        <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
+            <div class="form-group w-100">
+                <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group w-100">
+                <input type="password" class="form-control" id="InputPassword1" name="confirmPassword" placeholder="Confirm Password" required>
+                <small id="passwordError" class="text-danger"></small> <!-- Placeholder for the warning message -->
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+            <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
+            <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
 
+        </div>
     </div>
-</div>
 
     <script>
         // Login / Signup Popup Window - Forget Password is it's own page still
         function loginAppear() {
             let popup = document.querySelector('.login-container').style.display = "block";
-            let popdown = document.querySelector('.signup-container').style.display = "none";
         }
 
-        function signupAppear() {
+        function signupSwitch() {
+            let popdown = document.querySelector('.signup-container').style.display = "none";
+            let popup = document.querySelector('.login-container').style.display = "block";
+        }
+
+        function loginSwitch() {
             let popdown = document.querySelector('.login-container').style.display = "none";
             let popup = document.querySelector('.signup-container').style.display = "block";
         }
 
-        function signupPopup() {
-            let popup = document.querySelector('');
-            popup.classList.toggle("show");
-        }
 
 
         // Coookie checker

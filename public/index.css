@@ -252,7 +252,7 @@ header {
     display: none;
     justify-content: center;
     align-items: center;
-    height: 405px;
+    height: 420px;
     flex-direction: column;
     width: 33rem;
     margin: auto;
@@ -261,7 +261,7 @@ header {
     left: 36%;
     z-index: 100;
     color: white;
-    border: 0.25rem solid red;
+    border: 0.25rem solid forestgreen;
     background-color: darkseagreen;
 }
 
@@ -275,7 +275,34 @@ header {
     margin: 0 auto;
     z-index: 0;
     color: lightgoldenrodyellow;
+}
+.signup-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 425px;
+    flex-direction: column;
+    width: 33rem;
+    margin: auto;
+    position: fixed;
+    top: 42%;
+    left: 36%;
+    z-index: 100;
+    color: white;
+    border: 0.25rem solid forestgreen;
+    background-color: darkseagreen;
+}
 
+.signup-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0 auto;
+    z-index: 0;
+    color: lightgoldenrodyellow;
 }
 /*
 .login-box .container{
@@ -316,6 +343,22 @@ header {
     color: white;
     justify-content: center;
     align-items: center;
+}
+
+.form-control {
+    background: #0e0e0e;
+    color: rgba(255, 255, 255, 0.8509803922);
+    transition: 0.2s;
+}
+
+.form-control:focus {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.w-100 {
+    width: 100%;
+    text-align: center;
 }
 
 .scroll-text {
