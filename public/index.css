@@ -41,13 +41,74 @@ img {
 
 .homepage-container #section2 {
     display: flex;
-}
-
-.homepage-container #section2 #header-text {
-    text-align: center;
+    align-items: center;
     justify-content: center;
 }
 
+.homepage-container #section3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Section 2 Info cards*/
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    background-color: #333333;
+}
+
+.card-body {
+    padding: 16px;
+    color: #ffffff;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #dddddd;
+    margin-bottom: 16px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
 /* Cookie popup*/
 .cookie_container {
@@ -106,6 +167,7 @@ header {
     justify-content: space-between;
     backdrop-filter: blur(5px);
     padding: 0 0.5rem;
+    border-radius: 5px;
 }
 
 .navbar .logo {
@@ -212,6 +274,7 @@ header {
     background: radial-gradient(circle, transparent 25%, #ffffff  26%),linear-gradient(45deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%), linear-gradient(135deg, transparent 46%, #d8d8d8 47%, #d8d8d8 52%, transparent 53%);
     background-size: 3em 3em;
     background-color: #ffffff;
+    background-position: center;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 5px 0;
