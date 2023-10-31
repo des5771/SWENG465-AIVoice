@@ -99,7 +99,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
             <br>
-            <h3>Log in or <a href="javascript:loginSwitch();">Sign up</a></h3>
+            <h3>Log in or <a href="javascript:signupSwitch();">Sign up</a></h3>
             <div class="form-group w-100">
                 <input type="email" class="form-control" id="InputEmail" placeholder="Email">
             </div>
@@ -115,7 +115,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
-            <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
+            <div class="text"> Forgot Password? <a href="javascript:forgetPassSwitch();"><b>Click Here</b></a></div>
             <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
 
         </div>
@@ -127,7 +127,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
             <br>
-            <h3><a href="javascript:signupSwitch();">Log in</a> or Sign up</h3>
+            <h3><a href="javascript:loginSwitch();">Log in</a> or Sign up</h3>
             <div class="form-group w-100">
                 <input type="email" class="form-control" id="InputEmail" placeholder="Email">
             </div>
@@ -141,7 +141,27 @@
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
-            <div class="text"> Forgot Password? <a href="forgotPassword.html"><b>Click Here</b></a></div>
+            <div class="text"> Forgot Password? <a href="javascript:forgetPassSwitch();"><b>Click Here</b></a></div>
+            <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
+
+        </div>
+    </div>
+
+    <div class="forget-container">
+
+        <div class="forget-box">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a href="index.html"><img src="imgs/relikt_logo_cropped.png" alt="Logo of Relikt"></a>
+            <br>
+            <h3><a href="javascript:loginSwitch();">Log in</a> or <a href="javascript:signupSwitch();">Sign up</a></h3>
+            <br>
+            <h3>Forget password?  Enter the account's associated email.</h3>
+            <div class="form-group w-100">
+                <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
             <div class="text-muted" style="font-size: 10px;">By clicking "Submit", you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</div>
 
         </div>
@@ -153,14 +173,22 @@
             let popup = document.querySelector('.login-container').style.display = "block";
         }
 
-        function signupSwitch() {
-            let popdown = document.querySelector('.signup-container').style.display = "none";
+        function loginSwitch() {
+            let popdown1 = document.querySelector('.signup-container').style.display = "none";
+            let popdown2 = document.querySelector('.forget-container').style.display = "none";
             let popup = document.querySelector('.login-container').style.display = "block";
         }
 
-        function loginSwitch() {
-            let popdown = document.querySelector('.login-container').style.display = "none";
+        function signupSwitch() {
+            let popdown1 = document.querySelector('.login-container').style.display = "none";
+            let popdown2 = document.querySelector('.forget-container').style.display = "none";
             let popup = document.querySelector('.signup-container').style.display = "block";
+        }
+
+        function forgetPassSwitch() {
+            let popdown1 = document.querySelector('.login-container').style.display = "none";
+            let popdown2 = document.querySelector('.signup-container').style.display = "none";
+            let popup = document.querySelector('.forget-container').style.display = "block";
         }
 
 
