@@ -283,3 +283,9 @@ a:hover {
 span {
     margin: 0 20px; /* Space around "or" */
 }
+
+.OAuthButtons .btn {
+    width: auto;
+    display: inline-block;
+    font-size: 16px;
+}
