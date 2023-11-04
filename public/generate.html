@@ -8,6 +8,7 @@
         <script src="generate.js"></script>
     </head>
 
+    <!--TODO: Figure out what to do with all the empty space-->
     <body>
 
         <div class="gradient-top"></div>
@@ -38,28 +39,67 @@
             </div>
 
             <div class="panel-content">
+                <div class="box generateVoiceContainer" id="generateVoiceContainer">
+                    <input type="submit" value="Generate an AI Voice" id="showGeneratePopUp" />
+                </div>
+
+                <br>
+
+                <!--TODO: Accept POST containing name and base64 and generate voiceHistoryObject-->
+                <div class="box voiceHistoryContainer" id="voiceHistoryContainer">
+                    <h3>Generated Voices</h3>
+
+                    <br>
+
+                    <!-- Saved Voice Objects -->
+                    <div class="box voiceHistoryObject" id="voiceHistoryObject" style="display: none;">
+
+                        <h4 id="voiceHistoryObjectName"> Template </h4>
+
+                        <div class="mp3-player">
+                            <audio controls>
+                                <source src="" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- If NO Saved Voice Objects -->
+                    <div class="box noVoiceHistoryObject" id="noVoiceHistoryObject" style="margin: 1rem; padding: 1rem;">
+                        <h4 style="text-align: center; margin: 0;">No files have been generated. Press the button above to begin!</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--TODO: Beautify-->
+        <div class="popup-container" id="popupContainer" style="display: none;">
+            <div class="generatePopUp">
+                <div class="exit-button" id="closePopupButton">
+                    <div class="close-icon">×</div>
+                </div>
                 <div class="box">
                     <h3>Choose a voice:</h3>
 
                     <div>
-                        <select class="custom-select" id="chosenVoice">
-                            <option value="0">Please select an option</option>
-                            <option value="1">Martin</option>
-                            <option value="2">Minecraft Villager</option>
-                            <option value="3">Biggie Cheese</option>
-                            <option value="4">Moist Critikal</option>
-                        </select>
+                        <label for="chosenVoice"></label><select class="custom-select" id="chosenVoice">
+                        <option value="0">Please select an option</option>
+                        <option value="1">Martin</option>
+                        <option value="2">Minecraft Villager</option>
+                        <option value="3">Biggie Cheese</option>
+                        <option value="4">Moist Critikal</option>
+                    </select>
                     </div><br>
                 </div><br>
 
                 <!--TODO: Make textarea look nicer-->
+                <!--TODO: Make textarea generate button work after inputing any text-->
                 <div class="box">
                     <h3>Text To Speech:</h3>
-                    <textarea id="textarea" name="freeform" rows="10" cols="100" placeholder="The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries."></textarea>
+                    <label for="textarea"></label><textarea id="textarea" name="freeform" rows="10" cols="100" placeholder="The Industrial Revolution and its consequences have been a disaster for the human race. They have greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to widespread psychological suffering (in the Third World to physical suffering as well) and have inflicted severe damage on the natural world. The continued development of technology will worsen the situation. It will certainly subject human beings to greater indignities and inflict greater damage on the natural world, it will probably lead to greater social disruption and psychological suffering, and it may lead to increased physical suffering even in “advanced” countries."></textarea>
                     <br><input type="submit" value="Generate TTS" id="generateButtonTTS" />
                 </div><br>
 
-                <!--TODO: Make buttons functional-->
                 <div class="box">
                     <h3>Voice To Speech:</h3>
                     <form action = "http://127.0.0.1:8081/sample_voice" method = "POST"
@@ -71,12 +111,9 @@
 
                 </div>
             </div>
+        </div>
 
-            <div id="uploadStatus"></div>
-
-        </div><br>
-
-
+        <div id="uploadStatus"></div>
 
     </body>
 </html>

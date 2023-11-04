@@ -181,26 +181,8 @@ a:hover {
 }
 
 /*generate.html PANEL CONTAINER - holds the panel controls and panel contents*/
-
 .panel-container .box {
     box-shadow: 0 0 7.5px;
-    text-align: center;
-}
-
-.panel-container .fileInput {
-    color:#000
-}
-
-.panel-container textarea {
-    padding: 0.2em;
-    background-color: #fff;
-    border: 1px solid #caced1;
-    border-radius: 0.25rem;
-    color: #000;
-    cursor: pointer;
-    resize: none;
-    box-shadow: 0 0 7.5px gray;
-    width: 80%;
 }
 
 .panel-container input {
@@ -213,18 +195,7 @@ a:hover {
     border-radius: 0.25rem;
     cursor: pointer;
     text-align: right;
-    box-shadow: 0 0 7.5px gray;
-}
-
-.panel-container select {
-    font-size: 1.15rem;
-    padding: 0.675em 6em 0.675em 1em;
-    background-color: #fff;
-    border: 1px solid #caced1;
-    border-radius: 0.25rem;
-    color: #000;
-    cursor: pointer;
-    box-shadow: 0 0 7.5px gray;
+    box-shadow: 0 0 7.5px rgb(128, 128, 128);
 }
 
 .panel-container {
@@ -267,6 +238,129 @@ a:hover {
     transition: margin-left 0.3s;
 }
 
+/*generate.html GENERATE VOICE CONTAINER - holds the first box that open the pop up*/
+
+.generateVoiceContainer input {
+    padding: 1.5rem 4rem 1.5rem 4rem;
+}
+
+.generateVoiceContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*generate.html VOICE HISTORY CONTAINER - holds the users voice history*/
+.voiceHistoryContainer H3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding-top: 1rem;
+}
+
+.voiceHistoryContainer {
+    position: relative;
+
+    width: 100%;
+    height: 80%;
+}
+
+.voiceHistoryObject {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/*Generate Voice Popup*/
+.popup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.generatePopUp {
+    background-color: #171717;
+    padding: 20px;
+    box-shadow: 0 0 7.5px rgb(128, 128, 128);
+    max-width: 80%;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    resize: none;
+    width: 80%;
+}
+
+.generatePopUp input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.15rem;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-align: right;
+    box-shadow: 0 0 7.5px rgb(128, 128, 128);
+}
+
+.generatePopUp .fileInput {
+    color:#000
+}
+
+.generatePopUp textarea {
+    padding: 0.2em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    resize: none;
+    box-shadow: 0 0 7.5px rgb(128, 128, 128);
+    width: 80%;
+}
+
+.generatePopUp select {
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 7.5px rgb(128, 128, 128);
+}
+
+/* Style the close button */
+.exit-button {
+    position: relative;
+    top: 10px;
+    right: -95%;
+    background-color: #ff6666;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.close-icon {
+    font-size: 20px;
+}
+
 /* or spacer on signup and login page*/
 .divider {
     display: flex;
@@ -284,6 +378,8 @@ a:hover {
 span {
     margin: 0 20px; /* Space around "or" */
 }
+
+
 
 .OAuthButtons .btn {
     width: auto;

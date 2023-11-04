@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const generateButtonVTS = document.getElementById('generateButtonVTS');
     const generateButtonTTS = document.getElementById('generateButtonTTS');
     const uploadStatus = document.getElementById('uploadStatus');
+    const popupContainer = document.getElementById('popupContainer');
+    const showGeneratePopUp = document.getElementById('showGeneratePopUp');
+    const closePopupButton = document.getElementById('closePopupButton');
 
     //set file to null
     let selectedFile = null;
@@ -17,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
     uploadButton.disabled = true;
     generateButtonVTS.disabled = true;
     generateButtonTTS.disabled = true;
+
+    showGeneratePopUp.addEventListener('click', () => {
+        popupContainer.style.display = 'flex';
+    });
+
+    closePopupButton.addEventListener('click', () => {
+        popupContainer.style.display = 'none';
+    });
 
     chosenVoice.addEventListener('change', function() {
         selectedVoice = chosenVoice.value;
@@ -74,8 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = new FormData();
         formData.append('chosenVoice', selectedVoice);
 
-        //readfile
+        //Define reader
         var reader = new FileReader();
+
+        //Define conversion and POST function
         reader.onload = function(e) {
             // binary data converted to base64
             fileData = btoa(e.target.result);
@@ -83,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //base64 biiiiiiatch
             formData.append('voiceInput', fileData);
 
+            //TODO: change "/vts" to some actual endpoint (the computer converting voice to speech), currently returns 404
             fetch('/vts', {
                 method: 'POST',
                 body: formData,
@@ -95,10 +109,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     uploadStatus.textContent = 'Error uploading the file: ' + error.message;
                 });
         };
+
+        //Define reader error
         reader.onerror = function(e) {
             // error occurred
             console.log('Error : ' + e.type);
         };
+
+        //Start conversion and POST
         reader.readAsBinaryString(selectedFile);
 
     }
